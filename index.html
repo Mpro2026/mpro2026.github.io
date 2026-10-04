@@ -6,8 +6,9 @@
     <title>PS4 Host - Mohamad Yousef</title>
     <style>
         body {
+            /* استخدام الصورة التي رفعتها باسم bg.jpg كخلفية للموقع */
             background: linear-gradient(rgba(10, 15, 30, 0.75), rgba(10, 15, 30, 0.75)), 
-                        url('data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxTUlBMU1BMUIAAAAWbWV0YQAAAAAAAAAhaGRscgAAAAAAAAAAc291cgAAAAAAAAAAAAAAAAAAAAAAY3B0aAAAAAptZGF0AAAAAgA3EAEACAEAB3O69I6pAAAa7R1fAAAA');
+                        url('bg.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -19,6 +20,7 @@
             text-align: center;
         }
 
+        /* كارت التعريف والشعار */
         .profile-card {
             background: rgba(16, 25, 50, 0.75);
             backdrop-filter: blur(12px);
@@ -51,21 +53,45 @@
             font-weight: bold;
             border-radius: 25px;
             direction: ltr;
+            transition: 0.3s;
+        }
+
+        .contact-btn:hover {
+            background-color: #1ebc57;
+            transform: scale(1.03);
+        }
+
+        .btn-exploit {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #0052d4, #4364f7, #6fb1fc);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 82, 212, 0.4);
+            transition: 0.3s;
+        }
+
+        .btn-exploit:hover {
+            transform: scale(1.05);
         }
     </style>
 
-    <!-- ربط ملفات السكربت الأصلية لضمان عمل الثغرة على PS4 -->
+    <!-- ربط ملفات السكربت الأصلية للـ PS4 -->
     <script src="int64.js"></script>
     <script src="ps4_offsets.js"></script>
     <script src="core.js"></script>
     <script src="mem.js"></script>
-    <script src="chain_lapse.js"></script>
-    <script src="chain_poops.js"></script>
     <script src="rpc_worker.js"></script>
 </head>
 <body>
 
-    <!-- كارت الاسم والرقم -->
+    <!-- كارت الاسم ورقم التواصل -->
     <div class="profile-card">
         <h1>Mohamad Yousef</h1>
         <p style="margin: 5px 0;">للتواصل عبر الواتساب:</p>
@@ -74,8 +100,24 @@
         </a>
     </div>
 
-    <h2>PS4 Exploit Host (11.00 - 13.00)</h2>
-    <p>قم بتشغيل الثغرة المطلوبة لجهازك من هنا.</p>
+    <!-- العنون المعدل بناءً على طلبك -->
+    <h2>PS4 Exploit Host (7.00 - 13.52)</h2>
+    <p>اختر نوع التعديل لتشغيله على الجهاز:</p>
+
+    <!-- أزرار تشغيل الثغرة -->
+    <div style="margin-top: 20px;">
+        <button class="btn-exploit" onclick="loadScript('chain_lapse.js')">تشغيل ثغرة LAPSE</button>
+        <button class="btn-exploit" onclick="loadScript('chain_poops.js')">تشغيل ثغرة POOPS</button>
+    </div>
+
+    <script>
+        function loadScript(scriptName) {
+            var script = document.createElement('script');
+            script.src = scriptName;
+            document.head.appendChild(script);
+            alert('جاري تحميل الثغرة...');
+        }
+    </script>
 
 </body>
 </html>
